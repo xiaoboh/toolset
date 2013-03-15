@@ -1,0 +1,26 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+B	t1.cpp	/^struct B$/;"	s	file:
+D	t1.cpp	/^class D : public B \/\/ B needs to be defined$/;"	c	file:
+D_obj	t1.cpp	/^} D_obj; \/\/ An object of type D is defined$/;"	v	typeref:class:D
+bar	t1.cpp	/^void D::bar()$/;"	f	class:D
+blue	t1.cpp	/^    blue$/;"	e	enum:color	file:
+color	t1.cpp	/^enum color {$/;"	g	file:
+foo	t1.cpp	/^    virtual parent_type foo() const$/;"	f	class:D
+foo	t1.cpp	/^union foo$/;"	u	file:
+green	t1.cpp	/^    green = 20,$/;"	e	enum:color	file:
+i	t1.cpp	/^    int i;$/;"	m	struct:B	file:
+j	t1.cpp	/^    int j;$/;"	m	struct:B	file:
+main	t1.cpp	/^int main( int argc, char** argv)$/;"	f
+parent_type	t1.cpp	/^    typedef B parent_type;$/;"	t	class:D	file:
+ptr_c	t1.cpp	/^    C *ptr_c; \/\/ a pointer\/reference to C can be used as C has been forward declared$/;"	m	class:D	file:
+red	t1.cpp	/^    red,$/;"	e	enum:color	file:
+sci	t1.cpp	/^    static const int sci = 1; \/\/ this is valid in C++98 as well$/;"	m	class:D	file:
+x	t1.cpp	/^    double x = 12.3; \/\/ C++11 inline data member initialization$/;"	m	class:D	file:
+x	t1.cpp	/^  int x;$/;"	m	union:foo	file:
+y	t1.cpp	/^  signed char y;$/;"	m	union:foo	file:
+yellow	t1.cpp	/^    yellow,$/;"	e	enum:color	file:

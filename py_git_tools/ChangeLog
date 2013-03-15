@@ -1,0 +1,8 @@
+Version 0.1:
+	1. The git repo manage(create,delete repo)
+	2. User key manage(add,del a user to repo)
+	3. Git hook:<update> can check user permission when user call 'git push'
+	on client. permission granularity is branch 
+
+Version 0.2:
+	1. support batch manage repo

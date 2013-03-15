@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>3</value>
+    </property>
+
+    <property>
+        <name>dfs.name.dir</name>
+        <value>/home/hadoop/hadoop-1.0.4/dfs.name</value>
+    </property>
+
+    <property>
+        <name>dfs.data.dir</name>
+        <value>/home/hadoop/hadoop-1.0.4/dfs.data</value>
+    </property>
+
+</configuration>
