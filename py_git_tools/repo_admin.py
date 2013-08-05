@@ -271,7 +271,7 @@ def get_user_pubkey( user ):
     """
     get a user's pubkey from g_cfg_pubkey_url
     """
-    local_key = os.path.join( g_cfg_pubkey_url, user+'.pub' )
+    local_key = os.path.join( g_cfg_pubkey_dir, user+'.pub' )
     if os.path.isfile(local_key):
         return open(local_key).read()
     elif 'smb' == g_cfg_pubkey_url[:3]:
