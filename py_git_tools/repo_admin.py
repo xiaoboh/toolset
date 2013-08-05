@@ -20,6 +20,7 @@ g_cfg_repo_root_path = '/git'
 g_cfg_admin_public_key = os.path.expanduser('~/.ssh/id_rsa.pub')
 #g_cfg_pubkey_url = 'ftp://anonymous@192.168.1.31/pubkey/'
 g_cfg_pubkey_url = "smb://192.168.1.208/Shared Data/pubkey/"
+g_cfg_pubkey_dir = '/git/.pubkey'
 
 class RepoManage:
     """
@@ -270,7 +271,10 @@ def get_user_pubkey( user ):
     """
     get a user's pubkey from g_cfg_pubkey_url
     """
-    if 'smb' == g_cfg_pubkey_url[:3]:
+    local_key = os.path.join( g_cfg_pubkey_url, user+'.pub' )
+    if os.path.isfile(local_key):
+        return open(local_key).read()
+    elif 'smb' == g_cfg_pubkey_url[:3]:
         return commands.getoutput(
             'smbget -a -q -O "%s%s.pub"'%(g_cfg_pubkey_url,user) )
     else:
@@ -284,6 +288,8 @@ def main():
 
     parser.add_argument('repo', metavar='RepoName', nargs='*'
                         , help='the git repo name, that you will manage')
+    parser.add_argument('--init', action='store_true'
+                        , help='init env')
     parser.add_argument('--create', action='store_true'
                         , help='create a new repo')
     parser.add_argument('--delete', action='store_true'
@@ -312,7 +318,12 @@ def main():
 
     rm = RepoManage()
     #{{{
-    if args.create:
+    if args.init:
+        os.mkdir(g_cfg_repo_root_path)
+        os.mkdir(g_cfg_pubkey_dir)
+        print 'Success: INIT ENV'
+
+    elif args.create:
         for repo in args.repo:
             rm.create_repo( repo, args.repo_desc )
             print 'Success: create repo(%s)!'%(repo)
